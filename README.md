@@ -63,4 +63,15 @@ python3 app.py
 and then Visit: http://127.0.0.1:5000
 
 
+---
 
+
+---
+##🌐 Future Enhancements
+1. 🔄 Real-time emotion refresh loop
+
+2. 📊 Confidence scores + mood visualization
+
+3. ☁️ Live deployment on Render or Railway
+
+4. 👥 User login & mood history tracking
