@@ -1,0 +1,26 @@
+{% extends "base.html" %} {% block title %}Results{% endblock %} {% block
+content %}
+<h2 class="text-xl font-semibold mb-4 text-center">
+  Predicted Mood:
+  <span class="text-indigo-600 font-bold">{{ mood }}</span>
+</h2>
+
+<h3 class="text-lg font-semibold mb-2">🎥 Top Movie Recommendations:</h3>
+<ul class="space-y-4">
+  {% for movie in movies %}
+  <li class="border rounded p-4 shadow-sm bg-gray-50">
+    <strong class="text-lg">{{ movie.title }}</strong>
+    <span class="text-sm text-gray-500">Rating: {{ movie.vote_average }}</span>
+    <p class="text-sm mt-2">{{ movie.overview }}</p>
+  </li>
+  {% endfor %}
+</ul>
+
+<div class="text-center mt-6">
+  <a
+    href="/"
+    class="bg-indigo-600 hover:bg-indigo-700 text-white px-4 py-2 rounded"
+    >🔙 Try Again</a
+  >
+</div>
+{% endblock %}

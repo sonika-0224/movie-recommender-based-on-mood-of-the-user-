@@ -1,0 +1,25 @@
+{% extends "base.html" %} {% block title %}Upload Facial Image{% endblock %} {%
+block content %}
+<h2 class="text-xl font-semibold mb-4">📸 Upload a Facial Image</h2>
+
+<form method="POST" enctype="multipart/form-data">
+  <label class="block mb-2 font-medium">Select an image (JPG, PNG):</label>
+  <input
+    type="file"
+    name="face_image"
+    accept="image/*"
+    class="mb-4 border p-2 rounded w-full"
+    required
+  />
+  <button
+    type="submit"
+    class="bg-pink-600 hover:bg-pink-700 text-white px-4 py-2 rounded"
+  >
+    Analyze Facial Expression
+  </button>
+</form>
+
+<div class="text-center mt-6">
+  <a href="/" class="text-indigo-600 hover:underline">⬅ Back to Home</a>
+</div>
+{% endblock %}

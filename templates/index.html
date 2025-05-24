@@ -1,0 +1,49 @@
+{% extends "base.html" %} {% block title %}Home{% endblock %} {% block content
+%}
+<form method="POST" action="/" class="mb-6">
+  <label class="block font-semibold mb-2">How are you feeling?</label>
+  <textarea
+    name="user_input"
+    rows="4"
+    class="w-full p-2 border rounded mb-4"
+    placeholder="I'm feeling excited and joyful..."
+  ></textarea>
+  <button
+    type="submit"
+    class="bg-indigo-600 hover:bg-indigo-700 text-white px-4 py-2 rounded"
+  >
+    Get Recommendations
+  </button>
+</form>
+
+<hr class="my-6" />
+
+<h2 class="text-xl font-semibold mb-2">Upload a Voice Recording (WAV)</h2>
+<form method="POST" action="/audio" enctype="multipart/form-data" class="mb-6">
+  <input type="file" name="audio_file" accept=".wav" class="mb-4" />
+  <button
+    type="submit"
+    class="bg-purple-600 hover:bg-purple-700 text-white px-4 py-2 rounded"
+  >
+    Analyze Audio
+  </button>
+</form>
+
+<h2 class="text-xl font-semibold mb-2">Upload a Facial Image</h2>
+<form method="POST" action="/face" enctype="multipart/form-data">
+  <input type="file" name="face_image" accept="image/*" class="mb-4" />
+  <button
+    type="submit"
+    class="bg-pink-600 hover:bg-pink-700 text-white px-4 py-2 rounded"
+  >
+    Analyze Expression
+  </button>
+</form>
+
+<p class="text-center mt-6">
+  <a href="/webcam" class="text-blue-600 hover:text-blue-800 underline">
+    📸 Use Real-Time Webcam Capture
+  </a>
+</p>
+
+{% endblock %}

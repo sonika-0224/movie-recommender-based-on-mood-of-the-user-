@@ -1,0 +1,60 @@
+{% extends "base.html" %} {% block title %}Webcam Capture{% endblock %} {% block
+content %}
+<h2 class="text-xl font-semibold mb-4">
+  📷 Capture Facial Expression via Webcam
+</h2>
+
+<video
+  id="video"
+  width="320"
+  height="240"
+  autoplay
+  class="mb-4 rounded border"
+></video
+><br />
+<button
+  onclick="capture()"
+  class="bg-indigo-600 hover:bg-indigo-700 text-white px-4 py-2 rounded"
+>
+  📸 Capture
+</button>
+<canvas id="canvas" width="320" height="240" style="display: none"></canvas>
+
+<form id="uploadForm" method="POST" enctype="multipart/form-data">
+  <input type="hidden" name="face_image" id="face_image" />
+</form>
+
+<script>
+  const video = document.getElementById("video");
+  const canvas = document.getElementById("canvas");
+
+  navigator.mediaDevices.getUserMedia({ video: true }).then((stream) => {
+    video.srcObject = stream;
+  });
+
+  function capture() {
+    const ctx = canvas.getContext("2d");
+    ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
+    canvas.toBlob((blob) => {
+      const file = new File([blob], "webcam.jpg", { type: "image/jpeg" });
+      const formData = new FormData();
+      formData.append("face_image", file);
+
+      fetch("/face", {
+        method: "POST",
+        body: formData,
+      })
+        .then((res) => res.text())
+        .then((html) => {
+          document.open();
+          document.write(html);
+          document.close();
+        });
+    }, "image/jpeg");
+  }
+</script>
+
+<div class="text-center mt-6">
+  <a href="/" class="text-indigo-600 hover:underline">⬅ Back to Home</a>
+</div>
+{% endblock %}

@@ -1,0 +1,25 @@
+{% extends "base.html" %} {% block title %}Upload Audio{% endblock %} {% block
+content %}
+<h2 class="text-xl font-semibold mb-4">🎤 Upload an Audio Clip (WAV)</h2>
+
+<form method="POST" enctype="multipart/form-data">
+  <label class="block mb-2 font-medium">Select your WAV file:</label>
+  <input
+    type="file"
+    name="audio_file"
+    accept=".wav"
+    class="mb-4 border p-2 rounded w-full"
+    required
+  />
+  <button
+    type="submit"
+    class="bg-purple-600 hover:bg-purple-700 text-white px-4 py-2 rounded"
+  >
+    Analyze Audio Mood
+  </button>
+</form>
+
+<div class="text-center mt-6">
+  <a href="/" class="text-indigo-600 hover:underline">⬅ Back to Home</a>
+</div>
+{% endblock %}
