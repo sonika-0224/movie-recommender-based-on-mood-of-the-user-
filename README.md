@@ -67,7 +67,7 @@ and then Visit: http://127.0.0.1:5000
 
 
 ---
-##🌐 Future Enhancements
+## 🌐 Future Enhancements
 1. 🔄 Real-time emotion refresh loop
 
 2. 📊 Confidence scores + mood visualization
